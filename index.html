@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON demo</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css.map">
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <button class="button">click!</button>
+    <ul class="none caja" id="caja">
+        caja
+    </ul>
+    <div class="app">
+        <div class="weather_temp">
+            <div class="temp_top">
+                <div class="weather_degrees"></div>
+                <div class="weather_now">
+                    <div class="weather_icon">Sunny ☼</div>
+                    <div class="weather_min_max"></div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="weather_increments" class="weather_hour">4324</div>
+        <div class="weather_date">
+            <div class="weather_clock">
+             <div id="MyClockDisplay" class="date_clock" onload="showTime()"></div>
+             <div class="date_meridian" id="date_meridian" onload="showMeridian()"></div>   
+            </div>
+            
+
+            <div id="date_today" class="date_today" onload="showDate()"></div>
+        </div>
+    </div>
+    <div class="my_data"></div>
+    </div>
+
+
+
+
+</body>
+
+</html>
