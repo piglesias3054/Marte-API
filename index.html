@@ -5,36 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON demo</title>
+    <title>MARTE</title>
+    <!-- CSS only -->
+
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/styles.css.map">
+
     <script src="assets/js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+    <script src="https://kit.fontawesome.com/955aa48854.js" crossorigin="anonymous"></script>
+    <script>
+        var db = new PouchDB('my_database');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <button class="button">click!</button>
+    <button class="saveData">SAVE DATA</button>
+    <button id="myData" class="myData">MY DATA</button>
+    <button id="showData" class="showInfo">INFO</button>
+   <div id="myDataSaved" class="myDataSaved"></div>
+    <div id="data" class="info">Martian weather is relatively colder than Earth's (as cold as -195 degrees Fahrenheit)
+        and often features vast dust storms. Yet, despite being a frigid desert prone to violent storms, NASA scientists
+        are more optimistic about exploration and habitation on Mars than any other planet.</div>
     <ul class="none caja" id="caja">
-        caja
+
     </ul>
     <div class="app">
         <div class="weather_temp">
             <div class="temp_top">
                 <div class="weather_degrees"></div>
                 <div class="weather_now">
-                    <div class="weather_icon">Sunny ☼</div>
+                    <div class="weather_icon">Sunny <i class="fas fa-sun"></i></i>
+
+                    </div>
                     <div class="weather_min_max"></div>
                 </div>
             </div>
 
-
         </div>
-        <div id="weather_increments" class="weather_hour">4324</div>
+        <div id="weather_increments" class="weather_hour"></div>
         <div class="weather_date">
             <div class="weather_clock">
-             <div id="MyClockDisplay" class="date_clock" onload="showTime()"></div>
-             <div class="date_meridian" id="date_meridian" onload="showMeridian()"></div>   
+                <div id="MyClockDisplay" class="date_clock" onload="showTime()"></div>
+                <div class="date_meridian" id="date_meridian" onload="showMeridian()"></div>
             </div>
-            
+
 
             <div id="date_today" class="date_today" onload="showDate()"></div>
         </div>

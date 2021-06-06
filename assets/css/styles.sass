@@ -2,6 +2,8 @@
 
 html, body
     height: 100%
+    width: 100%
+    overflow-x: hidden
     box-sizing: border-box
     margin: 0
     padding: 0
@@ -118,7 +120,7 @@ ul li
         top: 1rem
         font-weight: 100
         font-size: 1rem
-    
+
     .weather_hour
         display: flex
         align-items: left
@@ -127,8 +129,38 @@ ul li
 
     .weather_hour ul
         padding-left: 0
-        
-
 
     .weather_date
         display: none
+
+// BUTTON
+
+button
+    border: none
+    color: #ffffff
+    background-color: #ffb5b565
+    padding: 1rem
+
+// INFO
+
+.info
+    visibility: hidden
+    position: absolute
+    padding: 1rem
+    color: #ffffff
+    background-color: #ffb5b565
+    font-size: 0.8rem
+    width: 15rem
+
+.myDataSaved
+    visibility: hidden
+    position: absolute
+    padding: 1rem
+    color: #ffffff
+    background-color: #ffb5b565
+    font-size: 0.8rem
+    width: 15rem
+    list-style: none
+
+.show
+    visibility: visible

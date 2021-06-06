@@ -72,7 +72,7 @@ window.onload = function () {
     document.getElementById("date_meridian").innerText = meridian;
 
     setTimeout(showTime, 1000);
-  
+
   }
 
   showMeridian();
@@ -112,12 +112,14 @@ window.onload = function () {
     s = (s < 10) ? "0" + s : s;
 
     var time = h + ":" + m + " ";
-    var timeincrement1 = hplus + ":" + m + " ";
-    var timeincrement2 = (hplus + 1) + ":" + m + " ";
-    var timeincrement3 = (hplus + 2) + ":" + m + " ";
-    var timeincrement4 = (hplus + 3) + ":" + m + " ";
+    var timeincrement1 = hplus + ":" + m + " " + '<i class="fas fa-cloud"></i>';
+    var timeincrement2 = (hplus + 1) + ":" + m + " " + '<i class="fas fa-cloud"></i>';
+    var timeincrement3 = (hplus + 2) + ":" + m + " " + '<i class="fas fa-cloud"></i>';
+    var timeincrement4 = (hplus + 3) + ":" + m + " " + '<i class="fas fa-bolt"></i>';
 
-    document.getElementById("weather_increments").innerHTML = `<ul><li>${timeincrement1}</li><li>${timeincrement2}</li><li>${timeincrement3}</li><li>${timeincrement4}</li></ul>`;
+    document.getElementById("weather_increments").innerHTML = `<ul><li>${timeincrement1}
+    <i class="bi bi-cloud-drizzle"></i></li><li>${timeincrement2}</li>
+    <li>${timeincrement3}</li><li>${timeincrement4}</li></ul>`;
 
     setTimeout(showTime, 1000);
 
@@ -128,19 +130,73 @@ window.onload = function () {
 
   // Save Data
 
-  var button = document.querySelector(".button")
-  button.addEventListener('click', () => {
-    var modal = document.querySelector(".info")
-    modal.classList().add()
-  })
 
 
-  window.onload = function(){
-    let caja = document.querySelector(".caja");
-    localStorage.cuenta = localStorage.getItem("cuenta") ? localStorage.getItem("cuenta") : 0;
-    localStorage.cuenta++;
-    caja.innerHTML = `Esta página ha recibido ${localStorage.getItem("cuenta")} visitas`;
+  function optionSaveData() {
+    // Escuchar eventos de los botones 
+    let btnSaveData = document.querySelector(".saveData");
+    btnSaveData.addEventListener("click", saveData, false);
+
+    // GUARDAR
+    function saveData() {
+      let src = document.querySelector(".weather_min_max ul li span").innerHTML
+      let hour = document.querySelector(".date_clock").innerHTML
+      console.log(src);
+
+      let doc = {
+        "temp": src,
+        "time": hour,
+
+
+      };
+
+      db.put(doc);
+
+
+      console.log(db + hour)
+      console.log("DATA SAVED")
+
+      let saved = document.querySelector('#myDataSaved')
+
+    
+      saved.innerHTML= `<li><span>${hour + src}</span></li>`
     }
+  }
+  optionSaveData()
+
+
+  /* function showInfo() {
+    // Escuchar eventos de los botones 
+    let btnSaveData = document.querySelector(".showInfo");
+    btnShowInfo.addEventListener("click", showInfo, false);
+
+    function btnShowInfo() {
+      let info = btnSaveData.classList.toggle(".show")
+
+    }
+  }
+  showInfo() */
+
+  let data = document.querySelector('#data')
+
+  $("#showData").on("click", function () {
+
+    data.classList.add("show")
+    saved.classList.remove("show")
+
+  });
+
+  let saved = document.querySelector('#myDataSaved')
+
+  $("#myData").on("click", function () {
+
+    saved.classList.add("show")
+    data.classList.remove("show")
+
+  });
+
+  
+
 
 }
 
